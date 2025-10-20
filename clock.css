@@ -1,0 +1,123 @@
+ body {
+      background-color: rgb(1, 1, 1);
+      margin: 0;
+    }
+
+    .clock {
+      background-image: url("https://images.unsplash.com/photo-1589519160732-57fc498494f8?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29ybGR8ZW58MHx8MHx8fDA%3D");
+      height: 100vh;
+      position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+
+    }
+
+    .clock::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+      z-index: 0;
+    }
+
+
+    .clock * {
+      position: relative;
+      z-index: 1;
+    }
+
+   .info {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #408193, #53677f, #a27899, #549a78, #ffeb3b);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 8s linear infinite;
+  position: absolute;
+  top: 40px;
+  text-align: center;
+}
+@keyframes textGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+ .times {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 120px; /* welcome to world ke neeche spacing */
+  padding: 20px;
+  list-style: none;
+}
+
+.times li {
+  width: 200px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+}
+.times li::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #163741, #50af0731, #ff00c8, #0e4128);
+  background-size: 400% 400%;
+  animation: glow 6s linear infinite;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.times li span {
+  z-index: 1;
+background: linear-gradient(45deg,rgb(5, 38, 95),blue,rgb(117, 117, 22));
+background-size: 400% 400%;
+-webkit-background-clip: text;
+-webkit-text-fill-color:transparent;
+animation: glow 6s linear infinite;
+}
+@keyframes glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.times li:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
