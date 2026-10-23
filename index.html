@@ -1,30 +1,176 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World clock</title>
-<link rel="stylesheet" href="clock.css">
+
+  <title>World Clock | Meeting Planner</title>
+  <meta name="description" content="Check world time zones and find suitable meeting times across cities.">
+
+  <link rel="stylesheet" href="clock.css">
+  <script src="clock.js" defer></script>
 </head>
-
 <body>
-  <div class="clock">
-    <div class="info">
-      WELCOME TO WORLD
-    </div>
-  <ul class="times" id="times">
-    <li><span id="nyTime"></span></li>
-    <li><span id="pakTime"></span></li>
-    <li><span id="pacific"></span></li>
-    <li><span id="india"></span></li>
-    <li><span id="london"></span></li>
-    <li><span id="dubai"></span></li>
-    <li><span id="tokyo"></span></li>
-    <li><span id="sydney"></span></li>
-  </ul>
-  </div>
-  <script src="clock.js"></script>
-</body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="World Clock home">
+      World<span>Clock</span>
+    </a>
 
+    <nav class="mode-switch" aria-label="Choose a mode">
+      <button
+        type="button"
+        class="mode-button active"
+        id="clockModeButton"
+        aria-pressed="true"
+        aria-controls="world-clock"
+      >
+        World Clock
+      </button>
+
+      <button
+        type="button"
+        class="mode-button"
+        id="plannerModeButton"
+        aria-pressed="false"
+        aria-controls="meeting-planner"
+      >
+        Meeting Planner
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="world-clock" class="mode-section">
+      <div class="section-intro">
+        <p class="eyebrow">TIME AROUND THE WORLD</p>
+        <h1>Every city, one place.</h1>
+        <p>Keep track of time across your favourite cities.</p>
+      </div>
+
+      <ul class="times" id="times">
+        <li class="city-card">
+          <h2>New York</h2>
+          <p class="city-time" id="nyTime">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>Pakistan</h2>
+          <p class="city-time" id="pakTime">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>Pacific Time</h2>
+          <p class="city-time" id="pacific">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>India</h2>
+          <p class="city-time" id="india">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>London</h2>
+          <p class="city-time" id="london">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>Dubai</h2>
+          <p class="city-time" id="dubai">--:--:--</p>
+        </li>0
+
+        <li class="city-card">
+          <h2>Tokyo</h2>
+          <p class="city-time" id="tokyo">--:--:--</p>
+        </li>
+
+        <li class="city-card">
+          <h2>Sydney</h2>
+          <p class="city-time" id="sydney">--:--:--</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="meeting-planner" class="mode-section" hidden>
+      <div class="section-intro">
+        <p class="eyebrow">PLAN ACROSS TIME ZONES</p>
+        <h1>Find a time that works.</h1>
+        <p>Compare working hours and find a suitable time for everyone.</p>
+      </div>
+
+      <form id="meetingForm" class="planner-form">
+        <div class="form-field">
+          <label for="meetingDate">Meeting date</label>
+          <input type="date" id="meetingDate" name="meetingDate" required>
+        </div>
+
+        <div id="participants" class="participants">
+          <div class="participant">
+            <div class="form-field">
+              <label for="city1">City 1</label>
+              <select id="city1" name="city1" required>
+                <option value="Asia/Karachi">Pakistan</option>
+                <option value="America/New_York">New York</option>
+                <option value="America/Los_Angeles">Los Angeles</option>
+                <option value="Asia/Kolkata">India</option>
+                <option value="Europe/London">London</option>
+                <option value="Asia/Dubai">Dubai</option>
+                <option value="Asia/Tokyo">Tokyo</option>
+                <option value="Australia/Sydney">Sydney</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="start1">Work starts</label>
+              <input type="time" id="start1" name="start1" value="09:00" required>
+            </div>
+
+            <div class="form-field">
+              <label for="end1">Work ends</label>
+              <input type="time" id="end1" name="end1" value="17:00" required>
+            </div>
+          </div>
+
+          <div class="participant">
+            <div class="form-field">
+              <label for="city2">City 2</label>
+              <select id="city2" name="city2" required>
+                <option value="Europe/London">London</option>
+                <option value="Asia/Karachi">Pakistan</option>
+                <option value="America/New_York">New York</option>
+                <option value="America/Los_Angeles">Los Angeles</option>
+                <option value="Asia/Kolkata">India</option>
+                <option value="Asia/Dubai">Dubai</option>
+                <option value="Asia/Tokyo">Tokyo</option>
+                <option value="Australia/Sydney">Sydney</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="start2">Work starts</label>
+              <input type="time" id="start2" name="start2" value="09:00" required>
+            </div>
+
+            <div class="form-field">
+              <label for="end2">Work ends</label>
+              <input type="time" id="end2" name="end2" value="17:00" required>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="primary-button">
+          Find meeting times
+        </button>
+
+        <p id="meetingResults" class="meeting-results" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Time connects us, wherever we are.</p>
+  </footer>
+</body>
 </html>
+```
+
