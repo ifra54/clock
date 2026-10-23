@@ -1,11 +1,11 @@
 :root {
-  --background: #f7f8fa;
+  --background: #ffffff;
   --surface: #ffffff;
-  --text: #202722;
-  --muted: #6c756f;
-  --accent: #315c4c;
-  --border: #e3e8e4;
-  --shadow: 0 4px 18px rgba(25, 40, 30, 0.04);
+  --text: #171717;
+  --muted: #666666;
+  --accent: #174d38;
+  --border: #e5e7e5;
+  --shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -53,7 +53,7 @@ button {
 }
 
 .brand span {
-  color: var(--accent);
+  color: #174d38;
 }
 
 .mode-switch {
@@ -98,7 +98,7 @@ button {
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--accent);
+color: #174d38;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.6px;
