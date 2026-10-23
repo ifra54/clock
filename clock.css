@@ -1,10 +1,9 @@
  body {
-      background-color: rgb(1, 1, 1);
+      background-color: white;
       margin: 0;
     }
 
     .clock {
-      background:white;
       height: 100vh;
       position: center center;
       background-repeat: no-repeat;
@@ -39,7 +38,7 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(45deg, #408193, #53677f, #a27899, #549a78, #ffeb3b);
+ 
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
