@@ -1,52 +1,272 @@
-
 :root {
-  --background: #101512;
-  --card: #1B2820;
-  --green: #244A35;
-  --green-light: #8FBC8F;
-  --skin: #E8D5B7;
-  --text: #F3F3EC;
-  --muted: #B9C7BA;
-  --border: #34483A;
+  --background: #f7f8fa;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --text: #202722;
+  --muted: #6c756f;
+  --accent: #315c4c;
+  --border: #e3e8e4;
+  --shadow: 0 4px 18px rgba(25, 40, 30, 0.04);
+  --text: #171717;
+  --muted: #666666;
+  --accent: #174d38;
+  --border: #e5e7e5;
+  --shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
 }
 
-body {
-  background: var(--background);
-  color: var(--text);
+* {
+@@ -53,7 +53,7 @@
 }
 
-h1, h2, h3 {
-  color: var(--skin);
+.brand span {
+  color: var(--accent);
+  color: #174d38;
 }
 
-p, label {
+.mode-switch {
+@@ -98,247 +98,247 @@
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+color: #174d38;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.section-intro h1 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.15;
+  letter-spacing: -1.4px;
+  font-weight: 650;
+}
+
+.section-intro > p:last-child {
+  margin: 0;
   color: var(--muted);
+  font-size: 16px;
 }
 
-.clock-card, .meeting-planner {
-  background: var(--card);
+.times {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.city-card {
+  min-width: 0;
+  padding: 23px 20px;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.highlight, .active {
-  color: var(--green-light);
+.city-card:hover {
+  transform: translateY(-2px);
+  border-color: #c7d5cb;
 }
 
-button.primary {
-  background: var(--green);
-  color: var(--skin);
-  border: 1px solid var(--green-light);
+.city-card h2 {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.city-time {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(21px, 2.4vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  font-variant-numeric: tabular-nums;
+}
+
+.planner-form {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-field label {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d9e0da;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(49, 92, 76, 0.1);
+}
+
+#meetingDate {
+  max-width: 300px;
+  margin-bottom: 26px;
+}
+
+.participants {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.participant {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px;
+  background: #fbfcfb;
+  border: 1px solid var(--border);
   border-radius: 10px;
 }
 
-button.primary:hover {
-  background: var(--skin);
-  color: var(--background);
+.participant .form-field:first-child {
+  grid-column: 1 / -1;
 }
 
-input, select {
-  background: var(--card);
-  color: var(--text);
-  border: 1px solid var(--border);
+.primary-button {
+  margin-top: 24px;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
+
+.primary-button:hover {
+  background: #254a3c;
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+}
+
+.meeting-results {
+  margin: 22px 0 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.site-footer {
+  padding: 22px 7%;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #9bb8a6;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .times {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .participants {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 5%;
+  }
+
+  .mode-switch {
+    width: 100%;
+  }
+
+  .mode-button {
+    flex: 1;
+    padding: 10px 8px;
+  }
+
+  .container {
+    width: 90%;
+    padding: 38px 0 48px;
+  }
+
+  .section-intro {
+    margin-bottom: 24px;
+  }
+
+  .section-intro h1 {
+    letter-spacing: -0.8px;
+  }
+
+  .times {
+    gap: 11px;
+  }
+
+  .city-card {
+    padding: 17px 14px;
+  }
+
+  .city-card h2 {
+    margin-bottom: 13px;
+    font-size: 13px;
+  }
+
+  .city-time {
+    font-size: 21px;
+  }
+
+  .planner-form {
+    padding: 18px;
+  }
+
+  .participant {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
